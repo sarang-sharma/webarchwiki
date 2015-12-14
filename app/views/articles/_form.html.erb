@@ -1,4 +1,8 @@
 <%= simple_form_for @article do |f| %>
+	
+	<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"} %>
+	<br><br>
+
 	<%= f.label :title %><br>
 	<%= f.text_field :title %>
 	<br><br>
