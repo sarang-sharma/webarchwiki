@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 	before_action :find_article, only: [:show]
 
 	def index
+		@articles = Article.all.order("title")
 	end
 
 	def show
