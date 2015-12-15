@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
 
 	before_action :find_article, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :edit, :update]
 
 	def index
 		if params[:category].blank?
-			@articles = Article.all.order("created_at DESC")
+			@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
 		else
 			@category_id = Category.find_by(name: params[:category]).id
 			@articles = Article.where(category_id: @category_id).order("created_at DESC")
