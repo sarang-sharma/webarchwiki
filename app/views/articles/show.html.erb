@@ -6,5 +6,10 @@
 
 <%= link_to "Edit", edit_article_path %>
 <% if user_signed_in? %>
-	<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure? "} %>
+		
+		<% if current_user.email = 'sarang.sharma14@gmail.com' %>
+			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure? "} %>
+
+		<% end %>
+
 <% end %>
