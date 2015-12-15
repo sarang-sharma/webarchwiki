@@ -1,5 +1,6 @@
 <h1><%= @article.title %></h1>
-<p><%= @article.content %></p>
+<p><%= @article.created_at.strftime('%d %b, %Y') %></p>
+<p><%=markdown @article.content %></p>
 
 <%= link_to "Back", root_path %>
 

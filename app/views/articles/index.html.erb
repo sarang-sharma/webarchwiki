@@ -15,3 +15,11 @@
 <% if user_signed_in? %>
 	<%= link_to "New Article", new_article_path %>
 <% end %>
+
+<ul>
+	<li><%= link_to "All Articles", root_path%></li>
+<% Category.all.each do |category| %>
+			<li><%= link_to category.name, articles_path(category: category.name) %></li>
+			
+		<% end %>
+</ul>	

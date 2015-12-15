@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.3'
+gem 'redcarpet', '~> 3.3.3'
+gem 'pygments.rb', '~> 0.6.3'
 gem 'simple_form', '~> 3.2'
 gem 'will_paginate', '~> 3.0.7'
 gem 'friendly_id', '~> 5.1.0'
