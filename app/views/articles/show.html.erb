@@ -3,8 +3,9 @@
 <p><%=markdown @article.content %></p>
 
 <%= link_to "Back", root_path %>
-
-<%= link_to "Edit", edit_article_path %>
+<% if signed_in? %>
+	<%= link_to "Edit", edit_article_path %>
+<% end %>
 <% if admin_signed_in? %>
 		<% if current_admin.email == 'sarang.sharma14@gmail.com' %>
 			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure? "} %>
