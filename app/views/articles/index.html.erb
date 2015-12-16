@@ -1,8 +1,15 @@
 <h1>Articles#index</h1>
 
+<div id="tag_cloud">
+<% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
+	<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+	<% end %>
+</div>
+
 <% @articles.each do |article| %>
 			<h2><%= link_to article.title, article %></h2>
-			<p><%= article.created_at.strftime('%d %b, %Y') %></p>
+			<p><b>Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></b></p>
+			<p>Published: <%= article.created_at.strftime('%d %b, %Y') %></p>
 			
 			
 		<% end %>

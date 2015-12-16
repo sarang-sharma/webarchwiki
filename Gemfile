@@ -18,6 +18,7 @@ gem 'simple_form', '~> 3.2'
 gem 'will_paginate', '~> 3.0.7'
 gem 'friendly_id', '~> 5.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'byebug'

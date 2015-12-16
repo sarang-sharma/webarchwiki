@@ -4,11 +4,13 @@ class ArticlesController < ApplicationController
 	
 	
 	def index
-		if params[:category].blank?
+		if params[:category].blank? and params[:tag].blank?
 			@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 6)
-		else
+		elsif !params[:category].blank?
 			@category_id = Category.find_by(name: params[:category]).id
 			@articles = Article.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 6)
+		elsif params[:tag]
+			@articles = Article.all.tagged_with(params[:tag]).order("created_at DESC").paginate(page: params[:page], per_page: 6)
 		end
 	end
 
@@ -51,7 +53,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def article_params
-		params.require(:article).permit(:title, :content, :category_id, :slug)
+		params.require(:article).permit(:title, :tag_list, :content, :category_id, :slug)
 	end
 
 end
