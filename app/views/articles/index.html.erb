@@ -10,7 +10,7 @@
 <!-- For pagination -->
 <%= will_paginate @articles %>		
 
-<% if user_signed_in? %>
+<% if admin_signed_in? %>
 	<%= link_to "New Article", new_article_path %>
 <% end %>
 

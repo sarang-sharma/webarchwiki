@@ -8,13 +8,22 @@
 </head>
 <body>
 
-<%= link_to "Sign In", new_user_session_path%>
-<%= link_to "Sign Up", new_user_registration_path %>
+<% if !(user_signed_in? or admin_signed_in?) %>
 
+	<%= link_to "Sign In", new_user_session_path%>
+	<%= link_to "Sign Up", new_user_registration_path %>
+	<% end %>
 
 <% if user_signed_in? %>
 			<%= link_to "My Account", edit_user_registration_path %>
 			<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+		<% end %>
+
+<br><br>
+
+<% if admin_signed_in? %>
+			<%= link_to "Admin Account", edit_admin_registration_path %>
+			<%= link_to "Sign Out", destroy_admin_session_path, method: :delete %>
 		<% end %>
 
 <br><br>
