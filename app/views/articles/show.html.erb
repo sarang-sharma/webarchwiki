@@ -6,12 +6,9 @@
 
 <%= link_to "Edit", edit_article_path %>
 <% if admin_signed_in? %>
-<<<<<<< HEAD
-=======
-		
 		<% if current_admin.email == 'sarang.sharma14@gmail.com' %>
->>>>>>> Added admin model
 			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure? "} %>
+		<% end %>
 <% end %>
 
 <%= render 'disqus' %>
