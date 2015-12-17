@@ -7,11 +7,15 @@ $highlight: #8bc6db;
 $border: #E9E9E9;
 $white: #FFFFFF;
 
+
+
 #tag_cloud {
 	text-align: center;
-	width: 400px;
+	width: 600px;
 	line-height: 1.6em;
-	padding-bottom: 10%;
+	height: auto;
+	display: table;
+	padding-bottom: 3em;
 	.s { font-size: 0.8em;
 		  color: #56a3d5;
 		  font-weight: 550; }
@@ -22,9 +26,7 @@ $white: #FFFFFF;
 		  color: #eb6b22;
 		  font-weight: 700; }
 	a {
- 		-webkit-box-sizing: border-box;
-  		-moz-box-sizing: border-box;
-  		box-sizing: border-box;
+ 		
 	}
 
 	.tags a {
