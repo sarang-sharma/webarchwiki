@@ -2,18 +2,20 @@ class ArticlesController < ApplicationController
 
 	before_action :find_article, only: [:show, :edit, :update, :destroy]
 	autocomplete :tag, :name
+
 	def index
 		if params[:category].blank? and params[:tag].blank?
 			@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 6)
 		elsif !params[:category].blank?
 			@category_id = Category.find_by(name: params[:category]).id
-			@articles = Article.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 6)
+			@articles = Article.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 15)
 		elsif params[:tag]
-			@articles = Article.all.tagged_with(params[:tag]).order("created_at DESC").paginate(page: params[:page], per_page: 6)
+			@articles = Article.all.tagged_with(params[:tag]).order("created_at DESC").paginate(page: params[:page], per_page: 15)
 		end
 	end
 
 	def show
+		impressionist(@article)		
 	end
 
 	def new

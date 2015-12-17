@@ -1,15 +1,42 @@
-<h1><%= @article.title %></h1>
-<p><%= @article.created_at.strftime('%d %b, %Y') %></p>
-<p><%=markdown @article.content %></p>
-
-<%= link_to "Back", root_path %>
-<% if signed_in? %>
-	<%= link_to "Edit", edit_article_path %>
-<% end %>
-<% if admin_signed_in? %>
-		<% if current_admin.email == 'sarang.sharma14@gmail.com' %>
-			<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure? "} %>
+<div id="article_show_content" class="skinny_wrapper wrapper_padding">
+	<header>
+		<p class="date"><%= @article.created_at.strftime('%d %b, %Y') %></p>
+		<h1><%= @article.title %></h1>
+		<hr>
+	</header>
+		
+	<div id="content">	
+		<%=markdown @article.content %>
+	</div>
+	
+	<div id="admin_links">
+		<%= link_to "Back", root_path %>
+		<% if signed_in? %>
+			<%= link_to "Edit", edit_article_path %>
 		<% end %>
-<% end %>
+		<% if admin_signed_in? %>
+				<% if current_admin.email == 'sarang.sharma14@gmail.com' %>
+					<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure? "} %>
+				<% end %>
+		<% end %>
+	</div>	
 
-<%= render 'disqus' %>
+	<hr>
+
+		<div id="share_box">
+			<p>Share <%= @article.title %></p>
+			<a onclick="javascript:window.open('http://twitter.com/share?text=<%= @article.title %>&amp;url=<%= url_for([@article, {only_path: false}]) %>', '_blank', 'width=800,height=500, top=200,left=300');viod(0); ">
+			<i class="fa fa-twitter"></i></a>
+			<a onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for([@article, {only_path: false}]) %>', '_blank', 'width=800,height=500, top=200,left=300');viod(0); ">
+			<i class="fa fa-facebook"></i></a>
+			<a onclick="javascript:window.open('http://plus.google.com/share?url=<%= url_for([@article, {only_path: false}]) %>', '_blank', 'width=800,height=500, top=200,left=300');viod(0); ">
+			<i class="fa fa-google-plus"></i></a>
+		</div>
+
+	<hr>
+	
+
+
+		<%= render 'disqus' %>
+
+</div>

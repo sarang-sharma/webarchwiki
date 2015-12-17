@@ -21,6 +21,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts-as-taggable-on'
 gem 'rails3-jquery-autocomplete'
+gem 'impressionist'
+
 
 group :development, :test do
   gem 'byebug'

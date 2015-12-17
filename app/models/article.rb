@@ -18,4 +18,6 @@ class Article < ActiveRecord::Base
 	  self.tags = tag_names.map { |name| Tag.where('name = ?', name).first or Tag.create(:name => name) }
 	end
 
+	is_impressionable :counter_cache => true
+
 end

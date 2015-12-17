@@ -1,10 +1,181 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$dark: #424652;
+$light: #9a9da4;
+$highlight: #8bc6db;
+$border: #E9E9E9;
+$white: #FFFFFF;
+
 #tag_cloud {
+	text-align: center;
 	width: 400px;
 	line-height: 1.6em;
-	.s { font-size: 0.8em; }
-	.m { font-size: 1.2em; }
-	.l { font-size: 1.8em; }
+	padding-bottom: 10%;
+	.s { font-size: 0.8em;
+		  color: #56a3d5;
+		  font-weight: 550; }
+	.m { font-size: 1.2em;
+		 color: #65bb34;
+		 font-weight: 600; }
+	.l { font-size: 1.6em; 
+		  color: #eb6b22;
+		  font-weight: 700; }
+	a {
+ 		-webkit-box-sizing: border-box;
+  		-moz-box-sizing: border-box;
+  		box-sizing: border-box;
+	}
+
+	.tags a {
+	  height: 26px;
+	  line-height: 23px;
+	  padding: 0 9px 0 8px;
+	  text-decoration: none;
+	  text-shadow: 0 1px white;
+	  background: #fafafa;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #dadada #d2d2d2 #c5c5c5;
+	  border-radius: 3px;
+	  background-image: -webkit-linear-gradient(top, #fcfcfc, #f0f0f0);
+	  background-image: -moz-linear-gradient(top, #fcfcfc, #f0f0f0);
+	  background-image: -o-linear-gradient(top, #fcfcfc, #f0f0f0);
+	  background-image: linear-gradient(to bottom, #fcfcfc, #f0f0f0);
+
+	}
+	ul {
+		list-style-type: none;
+	}
+	.tags li {
+		  float: left;
+		  margin: 0 0 8px 12px;
+		}
+
+}
+
+#articles_wrapper {
+	padding: 3em 0;
+	.article {
+		text-align: center;
+		.date {
+			font-size: .9em;
+			margin: 0;
+		}
+		h2 {
+			margin: 0;
+			font-size: 2em;
+			text-transform: uppercase;
+			a{
+				text-decoration: none;
+				color: $dark;
+				&:hover {
+					color: $highlight;
+				}
+			}
+		}
+		hr{
+			margin: 3em auto;
+		}
+	}
+}
+
+// ------ Articles Show Page --------
+
+#article_show_content {
+	header {
+		text-align: center;
+		.date {
+			font-size: .9em;
+			color: $light;
+			margin: 0;
+		}
+		h1 {
+			margin: 0;
+		}
+	}
+	hr {
+			margin: 3em auto;
+		}
+}
+
+#share_box {
+	text-align: center;
+	p {
+		padding: 0 0 1em 0;
+		margin: 0;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: $dark;
+		font-size: .8em;
+	}
+	i {
+		color: $dark;
+		padding: 1em 1.5em;
+		&:hover {
+			color: $highlight;
+			cursor: pointer;
+		}
+	}
+}
+
+#admin_links {
+	border-top: 1px solid $border;
+	border-bottom: 1px solid $border;
+	text-align: center;
+	padding: 1em 0;
+	margin: 3em 0;
+	a {
+		color: $light;
+		margin: 0 1em;
+		font-weight: 700;
+		font-size: 0.8em;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+}
+
+//------- Pagination
+
+.pagination:before,
+.pagination:after {
+	content: " ";
+	display: table;
+}
+
+.pagination:after {
+	clear: box;
+}
+
+.pagination {
+	text-align: center;
+	margin: 0 0 3em 0;
+	a, .previous_page, .current, .next_page {
+		padding: .75em 1em;
+		margin: 0 .5em;
+		border-radius: .15em;
+		line-height: 20px;
+		text-decoration: none;
+		background: $white;
+		font-weight: 700;
+		font-size: .7em;
+		font-style: normal;
+		color: $dark;
+		&:hover {
+			background: $highlight;
+			color: $white; 
+		}
+
+	}
+	.current {
+		background: $highlight;
+		color: $white;
+	}
+	.disabled {
+		color: #C0C0C0;
+		&:hover {
+			color: #C0C0C0;
+			background: $white;
+		}
+	}
 }
