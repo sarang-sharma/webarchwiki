@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def tag_list=(new_value)
-	  tag_names = new_value.split(/\s*,\s+/)
+	  tag_names = new_value.split(/\s*,\s*+/)
 	  self.tags = tag_names.map { |name| Tag.where('name = ?', name).first or Tag.create(:name => name) }
 	end
 

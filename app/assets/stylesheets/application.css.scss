@@ -85,6 +85,10 @@ h1, h2, h3, h4, h5 ,h6, p, ul, li {
 	color: $dark;
 }
 
+ul {
+	list-style-type: none;
+}
+
 h1 {
 	font-size: 2.5rem;
 }
