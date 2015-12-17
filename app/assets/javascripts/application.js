@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require ajaxify_rails
 //= require turbolinks
 //= require_tree .
 
