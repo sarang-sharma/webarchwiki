@@ -17,7 +17,7 @@
 	<% end %>
 
 	<% if !(signed_in?) %>
-		<%= link_to "Sign In", new_user_session_path%>
+		<%= link_to "Log In", new_user_session_path%>
 		<%= link_to "Sign Up", new_user_registration_path %>
 		<% end %>
 	<% if user_signed_in? %>
