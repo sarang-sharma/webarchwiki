@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
 
 	before_action :find_article, only: [:show, :edit, :update, :destroy]
-	
-	
+	autocomplete :tag, :name
 	def index
 		if params[:category].blank? and params[:tag].blank?
 			@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 6)

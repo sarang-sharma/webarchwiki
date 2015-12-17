@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :title, use: :slugged
 
-	acts_as_taggable
+	acts_as_taggable_on :tags
 
 	def tag_list
   		self.tags.map { |t| t.name }.join(", ")
