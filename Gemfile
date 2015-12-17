@@ -22,6 +22,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'acts-as-taggable-on'
 gem 'rails3-jquery-autocomplete'
 gem 'impressionist'
+gem 'ajaxify_rails'
 
 
 group :development, :test do
