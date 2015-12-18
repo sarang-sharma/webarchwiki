@@ -10,7 +10,6 @@ Wiki is an collaborative database for tutorials and articles on topics such as A
 
 == To do
 * User action history (Papertrail)
-* Most visited articles
  
 == Specifications
  
