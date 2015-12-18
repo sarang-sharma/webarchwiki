@@ -1,5 +1,5 @@
 =WebarchWiki
-Wiki is an collaborative database for tutorials and articles on topics such as App Development, Web Development, Web Designing, Graphic Designing, VFX etc.
+WebarchWiki is an collaborative database for tutorials and articles on topics such as App Development, Web Development, Web Designing, Graphic Designing, VFX etc.
 
 == Features
 * CRUD
