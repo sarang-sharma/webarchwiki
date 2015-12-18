@@ -46,13 +46,76 @@ body {
 	clear: both;
 } 
 .ajaxify_loader {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  background-repeat: no-repeat;
-  background-image: image-url('447.gif');
+  
 }
 
+//------Dropdown----
+
+.custom-dropdown {
+  position: relative;
+  float: right;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2%;
+}
+
+.custom-dropdown select {
+  background-color: #1abc9c;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: .5em;
+  padding-right: 2.5em;	
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0,0,0,.4);
+}
+
+//-------------------
 
 .hidden {
 	display: none;
@@ -65,19 +128,22 @@ body {
 }
 
 #banner {
-	// background-image: image-url('ooo.png');
-	background-color: $coolblue;
+	background-image: image-url('oooo.jpg');
+	border-top: 4px solid $coolblue; ;
+	border-bottom: 4px solid $coolblue; ;
+	background-color: #ccffff;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	h1 {
 		text-align: center;
-		color: $white;
-		font-size: 3rem;
+		color: #000000;
+		font-size: 5rem;
+		text-transform: uppercase;
 		font-weight: 300;
 		letter-spacing: 1px;
 		margin: 0;
-		padding: 5rem 0;
+		padding: 2rem 0;
 	} 	
 }
 

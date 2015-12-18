@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   	 get :autocomplete_tag_name, :on => :collection
   	end
   root 'articles#index'
+  post 'articles/index'
   get 'tags/:tag', to: 'articles#index', as: :tag
   get '*path' => redirect('/')
 end

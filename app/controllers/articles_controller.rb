@@ -1,11 +1,21 @@
 class ArticlesController < ApplicationController
 
+	skip_before_filter :verify_authenticity_token 
 	before_action :find_article, only: [:show, :edit, :update, :destroy]
 	autocomplete :tag, :name
 
 	def index
+		@sort = params[:sort]
 		if params[:category].blank? and params[:tag].blank?
-			@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 6)
+			if @sort == 'recent'
+				@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 6)
+			elsif @sort == 'recent'
+				@articles = Article.all.order("impressions_count DESC").paginate(page: params[:page], per_page: 6)
+			elsif @sort == 'alpha'
+				@articles = Article.all.order("title").paginate(page: params[:page], per_page: 6)
+			else
+				@articles = Article.all.order("created_at DESC").paginate(page: params[:page], per_page: 6)
+			end
 		elsif !params[:category].blank?
 			@category_id = Category.find_by(name: params[:category]).id
 			@articles = Article.where(category_id: @category_id).order("created_at DESC").paginate(page: params[:page], per_page: 15)
